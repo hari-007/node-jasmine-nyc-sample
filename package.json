@@ -1,0 +1,35 @@
+{
+  "name": "node-jasmine-nyc-sample",
+  "version": "1.0.0",
+  "description": "ES6+ Node.js sample repository with babel, jasmine and nyc (istanbuljs) setup",
+  "main": "app.js",
+  "repository": {},
+  "dependencies": {
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
+    "request-promise-native": "^1.0.8"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/register": "^7.7.7",
+    "@istanbuljs/nyc-config-babel": "^2.1.1",
+    "babel-plugin-istanbul": "^5.2.0",
+    "jasmine": "^3.5.0",
+    "jasmine-spec-reporter": "^4.2.1",
+    "nodemon": "^2.0.2",
+    "nyc": "^14.1.1",
+    "rimraf": "^3.0.0"
+  },
+  "scripts": {
+    "clean": "rimraf build",
+    "build": "npm run clean && babel app.js -d dist",
+    "pretest": "npm run build",
+    "test": "nyc ./spec/test-init.js",
+    "debug-start": "npm run build && nodemon dist/app.js",
+    "start": "npm run build && node dist/app.js"
+  },
+  "author": "hari-007",
+  "license": "ISC"
+}
