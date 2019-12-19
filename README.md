@@ -3,7 +3,6 @@ ES6+ Node.js sample repository with babel, jasmine and nyc (istanbuljs) setup
 
 #### Steps to run and test this app locally
 
-<<<<<<< HEAD
 > * Clone the repository
 > * Run **npm i**
 > * Run **npm test**
@@ -11,15 +10,6 @@ ES6+ Node.js sample repository with babel, jasmine and nyc (istanbuljs) setup
 > * Run: **npm run debug-start** (For nodemon file debug)
 
 ##### And here is nyc configuration:
-=======
- > * Clone the repository
- > * Run **npm i**
- > * Run **npm test**
- > * Run **npm start**
- > * Run: **npm run debug-start** (For nodemon file debug)
-
-##### nyc configuration:
->>>>>>> 38487e8efb2743c751a9be4f4354f2e243704bc1
 ```JSON
 {
     "extends": "istanbuljs/nyc-config-babel",
