@@ -1,3 +1,21 @@
 {
-    "presets": ["@babel/preset-env"]
-}
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ],
+    "comments": false,
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+  }
+  

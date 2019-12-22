@@ -3,7 +3,10 @@
   "version": "1.0.0",
   "description": "ES6+ Node.js sample repository with babel, jasmine and nyc (istanbuljs) setup",
   "main": "app.js",
-  "repository": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:hari-007/node-jasmine-nyc-sample.git"
+  },
   "dependencies": {
     "request": "^2.88.0",
     "request-promise": "^4.2.5",
@@ -12,9 +15,9 @@
   "devDependencies": {
     "@babel/cli": "^7.7.7",
     "@babel/core": "^7.7.7",
+    "@babel/plugin-transform-classes": "^7.7.4",
     "@babel/preset-env": "^7.7.7",
     "@babel/register": "^7.7.7",
-    "@istanbuljs/nyc-config-babel": "^2.1.1",
     "babel-plugin-istanbul": "^5.2.0",
     "jasmine": "^3.5.0",
     "jasmine-spec-reporter": "^4.2.1",
@@ -23,10 +26,11 @@
     "rimraf": "^3.0.0"
   },
   "scripts": {
-    "clean": "rimraf build",
-    "build": "npm run clean && babel app.js -d dist",
+    "clean": "rimraf dist coverage",
+    "build": "npm run clean && babel --source-maps --no-comments src -d dist",
     "pretest": "npm run build",
-    "test": "nyc ./spec/test-init.js",
+    "test": "nyc ./src/spec/test-init.js",
+    "posttest": "rimraf dist/spec",
     "debug-start": "npm run build && nodemon dist/app.js",
     "start": "npm run build && node dist/app.js"
   },
