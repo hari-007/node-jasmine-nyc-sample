@@ -36,8 +36,13 @@ describe('Github-service suit', () => {
         spyOn(sampleGithubServiceObj, 'fetchRepoInfo').and.callThrough();
         
         sampleGithubServiceObj.fetchRepoInfo((err, response) => {
-            expect(sampleGithubServiceObj.getRequestOptions).toHaveBeenCalled();
-            done();
+            if (err) {
+                console.log('Something went wrong. Github returned error: ');
+                done.fail(err);
+            } else {
+                expect(sampleGithubServiceObj.getRequestOptions).toHaveBeenCalled();
+                done();
+            }
         });
     });
 })

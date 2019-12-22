@@ -22,7 +22,7 @@
     "temp-dir": "./coverage/.nyc_output",
     "watermarks": {
         "statements": [50, 95],
-        "branches": [52,  95],
+        "branches": [42,  95],
         "functions": [50, 95],
         "lines": [50, 95]
     },

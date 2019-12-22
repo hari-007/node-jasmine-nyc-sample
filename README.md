@@ -1,5 +1,9 @@
 # node-jasmine-nyc-sample
-ES6+ Node.js sample repository with babel, jasmine and nyc (istanbuljs) setup
+* ES6+ Node.js sample repository build with babel, jasmine and nyc (istanbuljs) to fetch github repository information by communicating with github developer api.
+* It has only one route to fetch repo information from github developer api
+    * **/fetch-repo-info**   -- here default org and repo points to this repository
+    * **/fetch-repo-info?org={your_favourite_org}&repo={your_favourite_repo}**
+* Pleae provide environment variable 'GIT_PERSONAL_ACCESS_TOEKEN' or 'your_own_github_personal_token' at src/services/github-service.js:#L26 for extended rate of requests (default UnAuthenticated are 60/h).
 
 #### Steps to run and test this app locally
 
@@ -12,9 +16,9 @@ ES6+ Node.js sample repository with babel, jasmine and nyc (istanbuljs) setup
 ##### And here is nyc configuration:
 ```JSON
 {
-    "extends": "istanbuljs/nyc-config-babel",
     "require": [
-        "@babel/register"
+        "@babel/register",
+        "source-map-support/register"
     ],
     "all": true,
     "cache": false,
@@ -23,9 +27,8 @@ ES6+ Node.js sample repository with babel, jasmine and nyc (istanbuljs) setup
         ".js", "jsx"
     ],
     "exclude": [
-        "spec/**",
+        "src/spec/**",
         "node_modules/**",
-        "dist/**",
         "coverage/**"
     ],
     "reporter": [
@@ -36,12 +39,12 @@ ES6+ Node.js sample repository with babel, jasmine and nyc (istanbuljs) setup
     "temp-dir": "./coverage/.nyc_output",
     "watermarks": {
         "statements": [50, 95],
-        "branches": [50,  95],
+        "branches": [52,  95],
         "functions": [50, 95],
         "lines": [50, 95]
     },
     "statements": 50,
-    "branches": 50,
+    "branches": 42,
     "functions": 50,
     "lines": 50
 }
